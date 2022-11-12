@@ -1,0 +1,13 @@
+//get all tasks for to-do list
+GET http://localhost:3000/task HTTP/1.1
+
+// add a task 
+POST http://localhost:3000/task HTTP/1.1
+Content-Type: application/json
+
+{
+    username: "Fure".
+    _id: 1,
+    title: "Wake Up and Grind!",
+    description: "Start the day with a prayer!"
+}
