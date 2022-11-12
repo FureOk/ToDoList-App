@@ -1,3 +1,4 @@
+const { userInfo } = require('os');
 const Task = require('../models/Task')
 
 // add a task
@@ -24,8 +25,29 @@ exports.addTask = async(req, res) => {
 };
 
 // delete a task
+exports.deleteTask = async(req, res) => {
+    try{
+        let id = { _id: req.params.id };
+        let deleteTheTask = await Task.findOneAndRemove(id) 
+        if(!deleteTheTask)
+            return res.status(404).json({
+                success: false,
+                message: "Task deletion failed."
+            });
+            return res.status(200).json({
+                success: true,
+                message: "Task deleted successfully."
+            });
+        
+    }catch (error) {
+        res.status(500).json({
+            success: false,
+            message: ":( Internal Server Error Detected",
+            error: error.message,
+        });
 
-
+    }
+};
 // get all tasks
 
 exports.getAllTasks = async (req, res) => {

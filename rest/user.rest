@@ -11,3 +11,5 @@ Content-Type: application/json
     title: "Wake Up and Grind!",
     description: "Start the day with a prayer!"
 }
+
+DELETE http://localhost:3000/task/1 HTTP/1.1
